@@ -1,0 +1,138 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * hoor nails — pink & white nail catalogue design system.
+ * Light, feminine, salon-luxe. All colors in oklch.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-blush: var(--blush);
+  --color-rose: var(--rose);
+  --color-petal: var(--petal);
+  --color-foil: var(--foil);
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Quicksand", system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+}
+
+:root {
+  --radius: 1rem;
+
+  /* surfaces — warm near-white with a blush tint */
+  --background: oklch(0.995 0.006 355);
+  --foreground: oklch(0.34 0.06 355);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.34 0.06 355);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.34 0.06 355);
+
+  /* primary — rose pink */
+  --primary: oklch(0.76 0.165 355);
+  --primary-foreground: oklch(0.99 0.006 355);
+
+  --secondary: oklch(0.95 0.022 350);
+  --secondary-foreground: oklch(0.42 0.09 355);
+  --muted: oklch(0.96 0.016 350);
+  --muted-foreground: oklch(0.58 0.045 355);
+  --accent: oklch(0.9 0.045 352);
+  --accent-foreground: oklch(0.36 0.09 355);
+
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0.006 355);
+  --border: oklch(0.91 0.02 350);
+  --input: oklch(0.91 0.02 350);
+  --ring: oklch(0.76 0.165 355);
+
+  /* brand accents */
+  --blush: oklch(0.94 0.035 350);
+  --rose: oklch(0.76 0.165 355);
+  --petal: oklch(0.88 0.06 350);
+  --foil: oklch(0.82 0.13 85);
+
+  --shadow-soft: 0 18px 40px -22px color-mix(in oklab, var(--rose) 55%, transparent);
+  --shadow-card: 0 12px 30px -18px color-mix(in oklab, var(--rose) 40%, transparent);
+  --gradient-rose: linear-gradient(135deg, oklch(0.9 0.05 350), oklch(0.82 0.12 2));
+  --gradient-blush: radial-gradient(120% 120% at 50% 0%, oklch(0.95 0.04 350), oklch(0.99 0.006 355));
+}
+
+.dark {
+  --background: oklch(0.22 0.03 355);
+  --foreground: oklch(0.96 0.006 355);
+  --card: oklch(0.27 0.035 355);
+  --card-foreground: oklch(0.96 0.006 355);
+  --popover: oklch(0.27 0.035 355);
+  --popover-foreground: oklch(0.96 0.006 355);
+  --primary: oklch(0.8 0.15 355);
+  --primary-foreground: oklch(0.2 0.04 355);
+  --secondary: oklch(0.33 0.04 355);
+  --secondary-foreground: oklch(0.96 0.006 355);
+  --muted: oklch(0.33 0.04 355);
+  --muted-foreground: oklch(0.78 0.04 355);
+  --accent: oklch(0.38 0.06 355);
+  --accent-foreground: oklch(0.96 0.006 355);
+  --destructive: oklch(0.7 0.19 22);
+  --destructive-foreground: oklch(0.99 0.006 355);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.8 0.15 355);
+  --blush: oklch(0.35 0.05 355);
+  --rose: oklch(0.8 0.15 355);
+  --petal: oklch(0.45 0.08 355);
+  --foil: oklch(0.78 0.13 85);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+}
+
+@utility slide-track {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+@utility photo-slot {
+  background: var(--gradient-blush);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--rose) 18%, transparent);
+}
